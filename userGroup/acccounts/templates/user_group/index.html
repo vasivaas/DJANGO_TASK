@@ -1,0 +1,48 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    <title>All User</title>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <div class="col-md-6">
+                <div class="card text-center text-white  mb-3" id="total">
+                    <div class="card-header">
+                        <h5 class="card-title">Total User</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{total_user}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md">
+            <h5>Users:</h5>
+            <hr>
+            <div class="card card-body">
+                <a class="prevent-submit btn btn-primary  btn-sm btn-block" href="{% url 'user_create' %}">Create User</a>
+                <table class="table table-sm">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nickname</th>
+                        <th>Created Date</th>
+                        <th></th>
+                    </tr>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{user.id}}</td>
+                            <td>{{user.nickname}}</td>
+                            <td>{{user.created_date}}</td>
+                            <td><a class="btn btn-sm btn-info" href="{{ user.get_absolute_url }}">View</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

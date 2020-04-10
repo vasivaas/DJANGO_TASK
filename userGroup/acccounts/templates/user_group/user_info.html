@@ -1,0 +1,49 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    <title>User Info</title>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>{{user.nickname}}</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{{ user.get_absolute_url }}/update">Update User</a>
+			<a class="btn btn-danger  btn-sm btn-block" href="{{ user.get_absolute_url }}/delete">Delete User</a>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Nickname: {{user.nickname}}</p>
+			<p>Created date: {{user.created_date}}</p>
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md">
+		<h5><strong>{{user.nickname}}</strong> added <strong>{{user.group.all.count}}</strong> groups</h5>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Group</th>
+					<th>Description</th>
+
+				</tr>
+				{% for group in user.group.all %}
+				<tr>
+					<td>{{group.name}}</td>
+					<td>{{group.descripion}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    <title>Delete group</title>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md">
+		<div class="card card-body">
+			<h5>Delete Current Group</h5>
+			<hr>
+			<p>Are you sure you want to delete:  {{ group }}</p>
+            <hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="submit" action="" value="Yes, delete." />
+            </form>
+		</div>
+	</div>
+</div>
+{% endblock %}

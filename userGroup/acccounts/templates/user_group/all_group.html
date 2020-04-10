@@ -1,0 +1,48 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+    <title>All Group</title>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <div class="col-md-7">
+                <div class="card text-center text-white  mb-3" id="total">
+                    <div class="card-header">
+                        <h5 class="card-title">Total Group</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{total_group}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md">
+            <h5>Group</h5>
+		<hr>
+		<div class="card card-body">
+            <a class="prevent-submit btn btn-primary  btn-sm btn-block" href="{% url 'group_create' %}">Create Group</a>
+			<table class="table table-sm">
+				<tr>
+					<th>id</th>
+					<th>Name</th>
+					<th>Description</th>
+					<th></th>
+				</tr>
+				{% for group in list_group %}
+					<tr>
+						<td>{{group.id}}</td>
+						<td>{{group.name}}</td>
+						<td>{{group.descripion}}</td>
+						<td><a class="btn btn-sm btn-info" href="{{ group.get_absolute_url }}">View</a></td>
+					</tr>
+				{% endfor %}
+			    </table>
+		    </div>
+        </div>
+    </div>
+{% endblock %}
