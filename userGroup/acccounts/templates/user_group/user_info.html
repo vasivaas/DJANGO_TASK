@@ -35,7 +35,7 @@
 					<th>Description</th>
 
 				</tr>
-				<{% for group in user.group.all %}
+				{% for group in user.group.all %}
 					<tr>
 						<td>{{group.name}}</td>
 						<td>{{group.descripion}}</td>
