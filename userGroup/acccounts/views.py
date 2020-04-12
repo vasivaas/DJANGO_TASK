@@ -87,6 +87,7 @@ def group_create(request):
     })
 
 
+
 def group_update(request, pk):
     group = Group.objects.get(id=pk)
     form = GroupForm(instance=group)
