@@ -10,7 +10,10 @@ urlpatterns = [
     url(r'^create/$', views.UserCreate.as_view(), name='user_create'),
     url(r'^user/(?P<pk>\d+)/update/$', views.UserUpdate.as_view(), name='user_update'),
     url(r'^user/(?P<pk>\d+)/delete/$', views.UserDelete.as_view(), name='user_delete'),
-    url(r'^group/create/$', views.GroupCreate.as_view(), name='group_create'),
-    url(r'^group/(?P<pk>\d+)/update/$', views.GroupUpdate.as_view(), name='group_update'),
-    url(r'^group/(?P<pk>\d+)/delete/$', views.GroupDelete.as_view(), name='group_delete'),
+    #url(r'^group/create/$', views.GroupCreate.as_view(), name='group_create'),
+    #url(r'^group/(?P<pk>\d+)/update/$', views.GroupUpdate.as_view(), name='group_update'),
+    #url(r'^group/(?P<pk>\d+)/delete/$', views.GroupDelete.as_view(), name='group_delete'),
+    url(r'^group/create/$', views.group_create, name='group_create'),
+    url(r'^group_update/(?P<pk>\d+)$', views.group_update, name='group_update'),
+    url(r'^group_delete/(?P<pk>\d+)$', views.group_delete, name='group_delete'),
 ]

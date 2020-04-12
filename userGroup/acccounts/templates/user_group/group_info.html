@@ -10,9 +10,9 @@
 		<div class="card card-body">
 			<h5>{{group.name}}</h5>
             <hr>
-            <a class="btn btn-outline-info  btn-sm btn-block" href="{{ group.get_absolute_url }}/update">Update Group</a>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'group_update' group.id%}">Update Group</a>
             {% if total_user == 0 %}
-                <a class="btn btn-danger  btn-sm btn-block" href="{{ group.get_absolute_url }}/delete">Delete Group</a>
+                <a class="btn btn-danger  btn-sm btn-block" href="{% url 'group_delete' group.id %}">Delete Group</a>
             {% else %}
                 <p>Не можна видалити групу в якій є користувачі</p>
             {% endif %}
